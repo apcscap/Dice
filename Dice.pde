@@ -1,29 +1,63 @@
-void setup()
-{
-	noLoop();
+int diceSize;
+void setup() {
+  size(500, 500);
+  background(255);
+  noLoop();
+  diceSize = 25;
 }
-void draw()
-{
-	//your code here
+
+void draw() {
+  int sum = 0;
+  for(int i=0;i<width/diceSize;i++) {
+    for(int j=0;j<height/diceSize;j++) {
+      Die dice = new Die(j*25, i*25, diceSize);
+      dice.roll();
+      sum += dice.getValue();
+    }
+  }
+  println(sum);
 }
-void mousePressed()
-{
-	redraw();
+void mousePressed() {
+  redraw();
 }
-class Die //models one single dice cube
-{
-	//variable declarations here
-	
-	Die(int x, int y) //constructor
-	{
-		//variable initializations here
-	}
-	void roll()
-	{
-		//your code here
-	}
-	void show()
-	{
-		//your code here
-	}
+
+class Die {
+  int x;
+  int y;
+  int dimension;
+  int value = 0;
+  Die(int x, int y, int diceDimension)  { // constructor
+    this.x = x;
+    this.y = y;
+    this.dimension = diceDimension;
+  }
+  void roll() {
+    // value = int(random(0, 6)) + 1;
+    value = (int)(Math.random()*6) + 1;
+    show();
+  }
+  void show() {
+    rect(x, y, dimension, dimension);
+    if(this.value == 1 || value == 5 || value == 3) {
+      ellipse(x + dimension / 2, y + dimension / 2, dimension * 0.2, dimension * 0.2);
+    }
+    if(value == 2 || value == 3 || value == 4 || value == 5 || value == 6) {
+      float padding = dimension * 0.2;
+      ellipse(x + padding, y + padding, dimension * 0.2, dimension * 0.2);
+      ellipse(x + dimension - padding, y + dimension - padding, dimension * 0.2, dimension * 0.2);
+    }
+    if(this.value == 4 || value == 5 || value == 6) {
+      float padding = dimension * 0.2;
+      ellipse(x + dimension - padding, y + padding, dimension * 0.2, dimension * 0.2);
+      ellipse(x + padding, y + dimension - padding, dimension * 0.2, dimension * 0.2);
+    }
+    if(this.value == 6) {
+      float padding = dimension * 0.2;
+      ellipse(x + dimension / 2, y + padding, dimension * 0.2, dimension * 0.2);
+      ellipse(x + dimension / 2, y + dimension - padding, dimension * 0.2, dimension * 0.2);
+    }
+  }
+  int getValue() {
+    return value;
+  }
 }
