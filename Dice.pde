@@ -32,8 +32,7 @@ class Die {
     this.dimension = diceDimension;
   }
   void roll() {
-    // value = int(random(0, 6)) + 1;
-    value = (int)(Math.random()*6) + 1;
+    value = (int)(Math.random()*6)+1;
     show();
   }
   void show() {
