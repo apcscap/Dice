@@ -36,8 +36,12 @@ class Die {
     show();
   }
   void show() {
+  	stroke(0);
+  	fill((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
     rect(x, y, dimension, dimension);
-    if(this.value == 1 || value == 5 || value == 3) {
+   	fill(255);
+   	noStroke();
+   	if(this.value == 1 || value == 5 || value == 3) {
       ellipse(x + dimension / 2, y + dimension / 2, dimension * 0.2, dimension * 0.2);
     }
     if(value == 2 || value == 3 || value == 4 || value == 5 || value == 6) {
