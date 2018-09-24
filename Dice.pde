@@ -17,7 +17,7 @@ void draw() {
       sum += dice.getValue();
     }
   }
-  println(sum);
+  // println(sum);
 }
 void mousePressed() {
   redraw();
