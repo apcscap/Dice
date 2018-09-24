@@ -19,9 +19,9 @@ void draw() {
   }
   // println(sum);
 }
-void mousePressed() {
-  redraw();
-}
+// void mousePressed() {
+//   redraw();
+// }
 
 class Die {
   int x;
