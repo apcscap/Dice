@@ -13,9 +13,24 @@
 			<section id="content">
 				<canvas id="Dice" data-processing-sources="Dice.pde">
 				</canvas>
+				<h3 id="label"></h3>
 		    </section>
 	    <footer>
-		    <button>Button</button>
+		    <button onclick="buttonPressed();">Click Me To Roll Dice</button>
 	    </footer>
+	    <script type="application/javascript">
+	    	console.log("test");
+	        var processingInstance;
+	        function buttonPressed() {
+	            if (!processingInstance) {
+	                processingInstance = Processing.getInstanceById('Dice');
+	            }
+	            console.log(processingInstance)
+	            processingInstance.redraw();
+	            var label = document.getElementById('label');
+	            label.innerHTML = String(processingInstance.getTotal());
+	            console.log(processingInstance.getTotal());
+	        }
+		</script>
 	</body>
 </html>

@@ -1,4 +1,5 @@
 int diceSize;
+int sum = 0;
 void setup() {
   size(500, 500);
   background(255);
@@ -8,7 +9,7 @@ void setup() {
 }
 
 void draw() {
-  int sum = 0;
+  sum = 0;
   for(int i=0;i<width/diceSize;i++) {
     for(int j=0;j<height/diceSize;j++) {
       Die dice = new Die(j*25, i*25, diceSize);
@@ -27,10 +28,10 @@ class Die {
   int y;
   int diceSize;
   int value = 0;
-  Die(int x, int y, int diceDimension)  { // constructor
+  Die(int x, int y, int diceSize)  { // constructor
     this.x = x;
     this.y = y;
-    this.diceSize = diceDimension;
+    this.diceSize = diceSize;
   }
   void roll() {
     value = (int)(Math.random()*6)+1;
@@ -62,4 +63,8 @@ class Die {
   int getValue() {
     return value;
   }
+}
+
+public int getTotal() {
+	return sum;
 }
