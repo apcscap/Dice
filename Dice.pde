@@ -1,7 +1,7 @@
 int diceSize;
 int sum = 0;
 void setup() {
-  size(2500, 2500);
+  size(1000, 1000);
   background(255);
   noLoop();
   noStroke();
