@@ -1,7 +1,7 @@
 int diceSize;
 int sum = 0;
 void setup() {
-  size(500, 500);
+  size(2500, 2500);
   background(255);
   noLoop();
   noStroke();
@@ -19,9 +19,9 @@ void draw() {
   }
   // println(sum);
 }
-// void mousePressed() {
-//   redraw();
-// }
+void mousePressed() {
+  redraw();
+}
 
 class Die {
   int x;
